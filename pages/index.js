@@ -1,8 +1,16 @@
 import Head from "next/head";
+import Image from "next/image";
+import Vimeo from "@u-wave/react-vimeo";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+import { fetchEntries } from "utils/contentfulPage";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-export default function Home() {
+export default function Home(props) {
+  const { fields } = props;
+
+  console.log(props);
+
   return (
     <div className="container">
       <Head>
@@ -11,20 +19,53 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header
-          title="Hi. I'm Daryl —
-A Dublin based,
-multidisciplinary
-digital product
-designer."
-        />
-        <p className="description">
-          A multidisciplinary digital product designer, helping design, launch and grow digital brands & products. Focused on delivering well-crafted, user-centred products by transforming rough ideas & complex problems into compelling digital experiences. Over the years I’ve worked with startups,
-          large enterprises and global brands on a variety of projects, ranging from user-centred interfaces, motion design and comprehensive brand identity and design systems. If you have a project you’d like to discuss, or just want to chat about design, then please reach out and say hello 👋
-        </p>
+        {fields.map((item, data) => {
+          return <h1 key={data}>{item.title}</h1>;
+        })}
+        {fields.map((item, data) => {
+          return <div key={data}>{documentToReactComponents(item.about)}</div>;
+        })}
+        {fields.map((item) => {
+          return item.gallery1.map((item, data) => {
+            return <Image key={data} src={`https:` + item.fields.file.url} width={item.fields.file.details.image.width} height={item.fields.file.details.image.height} alt="Daryl" />;
+          });
+        })}
+
+        <Vimeo video={"https://player.vimeo.com/video/301496512?h=d48f405b7b"} />
+
+        {fields.map((item) => {
+          return item.gallery2.map((item, data) => {
+            return <Image key={data} src={`https:` + item.fields.file.url} width={item.fields.file.details.image.width} height={item.fields.file.details.image.height} alt="Daryl" />;
+          });
+        })}
       </main>
 
       <Footer />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const entries = await fetchEntries();
+  // console.log(entries);
+
+  let data = entries.filter(
+    () =>
+      function () {
+        return item.sys.contentType.sys.id === "page";
+      }
+  );
+
+  // console.log(data)
+
+  const fields = data.map((item) => item.fields);
+
+  // console.log(fields);
+
+  return {
+    props: {
+      fields: fields,
+      data: data,
+    },
+  };
 }

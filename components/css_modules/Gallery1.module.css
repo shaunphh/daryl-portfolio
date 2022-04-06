@@ -1,0 +1,19 @@
+.gallery1 {
+    column-count: 2;
+    column-gap: 30px;
+}
+
+.gallery1 span {
+   
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 30px !important;
+    break-inside: avoid;
+    grid-row: 1 / -1;
+    grid-column: 1;
+}
+
+.gallery1 span:nth-child(3) {
+    margin-top: 25% !important;
+}

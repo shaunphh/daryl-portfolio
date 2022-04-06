@@ -1,0 +1,17 @@
+.header{
+  display: flex;
+  margin-top: 112px;
+  margin-bottom: 130px;
+}
+
+.header h1 {
+  width: 50%;
+  padding-right: 15px;
+  white-space: pre;
+}
+  
+.header div {
+  width: 50%;
+  padding-left: 15px;
+}
+

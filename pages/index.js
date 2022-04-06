@@ -1,46 +1,34 @@
 import Head from "next/head";
-import Image from "next/image";
 import Vimeo from "@u-wave/react-vimeo";
+import Navbar from "@components/Navbar";
 import Header from "@components/Header";
+import Gallery1 from "@components/Gallery1";
+import Gallery2 from "@components/Gallery2";
 import Footer from "@components/Footer";
 import { fetchEntries } from "utils/contentfulPage";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export default function Home(props) {
-  const { fields } = props;
-
-  console.log(props);
-
   return (
     <div className="container">
       <Head>
         <title>Daryl's Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff"></meta>
       </Head>
-
+      <Navbar icon={props} />
+      <Header title={props} />
       <main>
-        {fields.map((item, data) => {
-          return <h1 key={data}>{item.title}</h1>;
-        })}
-        {fields.map((item, data) => {
-          return <div key={data}>{documentToReactComponents(item.about)}</div>;
-        })}
-        {fields.map((item) => {
-          return item.gallery1.map((item, data) => {
-            return <Image key={data} src={`https:` + item.fields.file.url} width={item.fields.file.details.image.width} height={item.fields.file.details.image.height} alt="Daryl" />;
-          });
-        })}
-
+        <Gallery1 item={props} />
         <Vimeo video={"https://player.vimeo.com/video/301496512?h=d48f405b7b"} />
-
-        {fields.map((item) => {
-          return item.gallery2.map((item, data) => {
-            return <Image key={data} src={`https:` + item.fields.file.url} width={item.fields.file.details.image.width} height={item.fields.file.details.image.height} alt="Daryl" />;
-          });
-        })}
+        <Gallery2 item={props} />
       </main>
-
-      <Footer />
+      <Footer icon={props} />
     </div>
   );
 }

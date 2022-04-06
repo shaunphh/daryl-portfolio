@@ -1,10 +1,12 @@
-import styles from "./css_modules/Footer.module.css";
+import styles from "./css_modules/Navbar.module.css";
 
-export default function Footerr({ icon }) {
+export default function NavBar({ icon }) {
   const { fields } = icon;
   return (
-    <footer className={styles.footer}>
-      <>© Copyright Daryl Fitzsimons 2022</>
+    <nav className={styles.navbar}>
+      {fields.map((item) => {
+        return <img src={`https:` + item.icons[0].fields.file.url} width={item.icons[0].fields.file.details.image.width} height={item.icons[0].fields.file.details.image.height} alt={item.icons[0].fields.title} />;
+      })}
       <ul>
         <li>
           {fields.map((item, data, index, key) => {
@@ -35,6 +37,6 @@ export default function Footerr({ icon }) {
           })}
         </li>
       </ul>
-    </footer>
+    </nav>
   );
 }

@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar ul {
+    display: flex;
+    position: relative;
+    padding-top: 54px;
+    justify-content: end;
+    flex: auto;
+}
+
+.navbar>img {
+    position: fixed;
+    z-index: 1;
+}
+
+.navbar li {
+    margin-left: 24px;
+}
+
+
+
+.navbar ul img {
+    filter: brightness(0%);
+}
+
+.navbar ul img:hover {
+    filter: brightness(100%);
+    cursor: pointer;
+}

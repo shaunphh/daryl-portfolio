@@ -17,3 +17,24 @@
 .gallery1 span:nth-child(3) {
     margin-top: 25% !important;
 }
+
+
+@media screen and (max-width: 1240px) {
+    .gallery1 {
+        column-gap: 20px;
+    }
+    .gallery1 span {      
+        margin-bottom: 20px !important;
+           }
+  }
+
+@media screen and (max-width: 769px) {
+    .gallery1 {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+    .gallery1 span:nth-child(3) {
+        margin-top: 0 !important;
+    }
+  }

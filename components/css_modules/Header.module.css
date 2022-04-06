@@ -13,5 +13,41 @@
 .header div {
   width: 50%;
   padding-left: 15px;
+  white-space: pre-wrap;
 }
+
+@media screen and (max-width: 968px) {
+  .header {
+    flex-direction: column;
+  }
+  
+  .header h1 {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .header div {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+}
+  
+@media screen and (max-width: 479px) {
+  .header {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  
+  .header h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+  
+  .header div p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
 

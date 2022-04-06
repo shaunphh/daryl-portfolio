@@ -1,6 +1,6 @@
 import styles from "./css_modules/Footer.module.css";
 
-export default function Footerr({ icon }) {
+export default function Footer({ icon }) {
   const { fields } = icon;
   return (
     <footer className={styles.footer}>

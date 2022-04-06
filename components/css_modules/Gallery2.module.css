@@ -13,3 +13,19 @@
     grid-column: 1;
 }
 
+@media screen and (max-width: 1240px) {
+    .gallery2 {
+        column-gap: 20px;
+    }
+    .gallery2 span {      
+        margin-bottom: 20px !important;
+           }
+  }
+
+@media screen and (max-width: 769px) {
+    .gallery2 {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+  }

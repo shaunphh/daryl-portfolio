@@ -7,7 +7,7 @@
     display: flex;
     position: relative;
     padding-top: 54px;
-    justify-content: end;
+    justify-content: flex-end;
     flex: auto;
 }
 

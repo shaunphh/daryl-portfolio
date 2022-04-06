@@ -3,6 +3,7 @@ import Vimeo from "@u-wave/react-vimeo";
 import Navbar from "@components/Navbar";
 import Header from "@components/Header";
 import Gallery1 from "@components/Gallery1";
+import Video from "@components/Video";
 import Gallery2 from "@components/Gallery2";
 import Footer from "@components/Footer";
 import { fetchEntries } from "utils/contentfulPage";
@@ -25,7 +26,8 @@ export default function Home(props) {
       <Header title={props} />
       <main>
         <Gallery1 item={props} />
-        <Vimeo video={"https://player.vimeo.com/video/301496512?h=d48f405b7b"} />
+        {/* <Vimeo video={"https://player.vimeo.com/video/301496512?h=d48f405b7b"} width={1240} /> */}
+        <Video video={props} />
         <Gallery2 item={props} />
       </main>
       <Footer icon={props} />

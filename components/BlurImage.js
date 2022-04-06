@@ -1,29 +1,27 @@
 import Image from "next/image";
+import { useState } from "react";
+import styles from "./css_modules/BlurImage.module.css";
+import clsx from "clsx";
 
-export default function BlurImage({ image }) {
+function BlurImage(image) {
+  const [isLoading, setLoading] = useState(true);
   const { fields } = image;
+  console.log(fields);
   return (
     <>
       {fields.map((item, data) => {
-        return <Image key={data} src={`https:` + item.fields.file.url} width={item.fields.file.details.image.width} height={item.fields.file.details.image.height} alt={item.fields.title} />;
+        return (
+          <Image
+            key={data}
+            src={`https:` + item.fields.file.url}
+            width={item.fields.file.details.image.width}
+            height={item.fields.file.details.image.height}
+            alt={item.fields.title}
+            className={clsx(styles.blurImage, "ease", isLoading ? "filter" : "nofilter")}
+            onLoadingComplete={() => setLoading(false)}
+          />
+        );
       })}
     </>
-  );
-}
-
-
-/////////
-
-import styles from "./css_modules/Gallery2.module.css";
-import BlurImage from "./BlurImage.js";
-
-export default function Gallery2({ item }) {
-  const { fields } = item;
-  return (
-    <div className={styles.gallery2}>
-      {fields.map((image) => {
-        <BlurImage image={image} />;
-      })}
-    </div>
   );
 }

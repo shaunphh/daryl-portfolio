@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Vimeo from "@u-wave/react-vimeo";
 import Navbar from "@components/Navbar";
 import Header from "@components/Header";
 import Gallery1 from "@components/Gallery1";
@@ -26,7 +25,6 @@ export default function Home(props) {
       <Header title={props} />
       <main>
         <Gallery1 item={props} />
-        {/* <Vimeo video={"https://player.vimeo.com/video/301496512?h=d48f405b7b"} width={1240} /> */}
         <Video video={props} />
         <Gallery2 item={props} />
       </main>

@@ -8,13 +8,32 @@
   width: 50%;
   padding-right: 15px;
   white-space: pre;
+  /* position: relative; */
 }
-  
+
+ 
 .header div {
   width: 50%;
   padding-left: 15px;
   white-space: pre-wrap;
 }
+
+
+.header a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header div p a::after {
+  display: inline-block;
+  transform: rotate(0deg);
+  content: ' 👋';
+}
+
+.header p a:hover::after, .header p::after  {
+  transform: rotate(25deg);
+}
+
 
 @media screen and (max-width: 968px) {
   .header {

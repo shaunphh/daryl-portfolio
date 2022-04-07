@@ -30,9 +30,20 @@ function Application({ Component, pageProps }) {
     }, [size.height]);
   }
 
+  // //set the width of the body.
+  // if (typeof window !== "undefined") {
+  //   useEffect(() => {
+  //     setBodyWidth();
+  //   }, [size.width]);
+  // }
+
   //Set the height of the body to the height of the scrolling div
   const setBodyHeight = () => {
     document.body.style.height = `${scrollContainer.current.getBoundingClientRect().height}px`;
+  };
+
+  const setBodyWidth = () => {
+    document.body.style.width = `${scrollContainer.current.getBoundingClientRect().width}px`;
   };
 
   // Scrolling
@@ -51,7 +62,7 @@ function Application({ Component, pageProps }) {
     const skew = velocity * 0.5;
 
     //Assign skew and smooth scrolling to the scroll container
-    scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0) skewY(${skew}deg)`;
+    scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0)`;
 
     //loop vai raf
     requestAnimationFrame(() => skewScrolling());

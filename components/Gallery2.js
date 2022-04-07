@@ -17,8 +17,8 @@ export default function Gallery1({ item }) {
               width={items.fields.file.details.image.width}
               height={items.fields.file.details.image.height}
               alt={items.fields.title}
-              placeholder="blur"
-              blurDataURL={`/_next/image?url=${`https:` + items.fields.file.url}&w=16&q=1`}
+              // placeholder="blur"
+              // blurDataURL={`/_next/image?url=${`https:` + items.fields.file.url}&w=16&q=1`}
               // className={clsx("ease", isLoading ? "filter" : "nofilter")}
               // onLoadingComplete={() => setLoading(false)}
             />

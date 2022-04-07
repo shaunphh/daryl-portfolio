@@ -47,7 +47,7 @@ export default function NavBar({ icon }) {
         </li>
         <li>
           {fields.map((item, data, index, key) => {
-            console.log(item.icons);
+            // console.log(item.icons);
             return (
               <a
                 key={item}

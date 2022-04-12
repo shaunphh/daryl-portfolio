@@ -31,7 +31,7 @@ const SmoothScroll = ({ children }) => {
   const spring = useSpring(transform, physics); // apply easing to the negative scroll value
 
   return (
-    <>
+    <div className="container">
       <motion.div
         ref={scrollRef}
         style={{ y: spring }} // translateY of scroll container using negative scroll value
@@ -43,7 +43,7 @@ const SmoothScroll = ({ children }) => {
       {/* this is neccessary to allow the scroll container to scroll... */}
       {/* ... using the browser's native scroll bar */}
       <div style={{ height: pageHeight }} />
-    </>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ import { fetchEntries } from "utils/contentfulPage";
 
 export default function Home(props) {
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Daryl's Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
@@ -31,15 +31,17 @@ export default function Home(props) {
           key="titleKeywords"
         />
       </Head>
-      <Navbar icon={props} />
-      <Header title={props} />
-      <main>
-        <Gallery1 item={props} />
-        <Video video={props} />
-        <Gallery2 item={props} />
-      </main>
-      <Footer icon={props} />
-    </div>
+      <div className="container">
+        <Navbar icon={props} />
+        <Header title={props} />
+        <main>
+          <Gallery1 item={props} />
+          <Video video={props} />
+          <Gallery2 item={props} />
+        </main>
+        <Footer icon={props} />
+      </div>
+    </>
   );
 }
 

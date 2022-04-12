@@ -81,6 +81,7 @@ main {
   overflow: hidden;
   will-change: transform;
 }
+
 /* 
 .app {
   position: fixed;

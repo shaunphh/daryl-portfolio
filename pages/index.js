@@ -20,6 +20,16 @@ export default function Home(props) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff"></meta>
+        <meta
+          name="description"
+          content="A multidisciplinary digital product designer, helping design, launch and grow digital brands & products. Focused on delivering well-crafted, user-centred products by transforming rough ideas & complex problems into compelling digital experiences."
+          key="titleDescription"
+        />
+        <meta
+          name="keywords"
+          content="daryl, daryl-fitzsimons, design, ux, ui, user experience, user experience designer, product design, product designer, digital design, digital designer, motion design, portfolio, ireland, irish design"
+          key="titleKeywords"
+        />
       </Head>
       <Navbar icon={props} />
       <Header title={props} />

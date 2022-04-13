@@ -1,30 +1,87 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./css_modules/Gallery2.module.css";
+// import useNextBlurhash from "use-next-blurhash";
+import { motion } from "framer-motion";
 
-export default function Gallery1({ item }) {
-  const [isLoading, setLoading] = useState(true);
+const cardsVariant = {
+  entered: { transition: { delayChildren: 0.5, staggerChildren: 0.25 } },
+};
+
+const cardVariant = {
+  entering: { y: 80, opacity: 0 },
+  entered: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      opacity: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+export default function Gallery2({ item }) {
+  // const [isLoading, setLoading] = useState(true);
+  // const [blurDataUrl] = useNextBlurhash("LEHV6nWB2yk8pyo0adR*.7kCMdnj");
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const { fields } = item;
   return (
-    <div className={styles.gallery2}>
+    <motion.div
+      // variants={cardsVariant}
+      // initial="entering"
+      // animate="entered"
+      className={styles.gallery2}
+    >
       {fields.map((item) => {
         return item.gallery2.map((items, data) => {
           return (
-            <Image
-              key={data}
-              src={`https:` + items.fields.file.url}
-              width={items.fields.file.details.image.width}
-              height={items.fields.file.details.image.height}
-              alt={items.fields.title}
-              // placeholder="blur"
-              // blurDataURL={`/_next/image?url=${`https:` + items.fields.file.url}&w=16&q=1`}
-              // className={clsx("ease", isLoading ? "filter" : "nofilter")}
-              // onLoadingComplete={() => setLoading(false)}
-            />
+            <motion.div
+              // layout
+              // variants={cardVariant}
+              initial={{ y: 80, opacity: 0 }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  opacity: {
+                    duration: 0.4,
+                    ease: "easeOut",
+                  },
+                  duration: 0.6,
+                  ease: "easeOut",
+                },
+              }}
+              viewport={{ once: true }}
+            >
+              <Image
+                key={data}
+                src={`https:` + items.fields.file.url}
+                width={items.fields.file.details.image.width}
+                height={items.fields.file.details.image.height}
+                alt={items.fields.title}
+                // placeholder="blur"
+                // blurDataURL={`/_next/image?url=${`https:` + items.fields.file.url}&w=16&q=1`}
+                // className={clsx("ease", isLoading ? "filter" : "nofilter")}
+                // onLoadingComplete={() => setLoading(false)}
+                // onLoadingComplete={({ naturalWidth, naturalHeight }) =>
+                //   setRatio(naturalWidth / naturalHeight)
+                objectFit="cover"
+                // }
+              />
+            </motion.div>
           );
         });
       })}
-    </div>
+    </motion.div>
   );
 }

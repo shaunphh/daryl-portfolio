@@ -1,27 +1,25 @@
 .gallery1 {
-    column-count: 2;
+    /* column-count: 2; */
+    columns: 200px 2;
     column-gap: 30px;
     overflow:auto;
-    
+
 }
 
 
 
 .gallery1>div {
-    display: grid;
-    /* grid-template-rows: 1fr auto; */
-    /* margin-bottom: 30px !important; */
-    /* page-break-inside: avoid; */
-   
-    /* break-inside: avoid; */
-    grid-row: 1 / -1;
-    grid-column: 1;
+    display: inline-block;
+    page-break-inside: avoid;
+    break-inside: avoid;
     margin-bottom: 30px !important;
+    
 }
 
 
-.gallery1>div:nth-child(3)>span {
-    margin-top: 25% !important;
+.gallery1>div:nth-child(3){
+   margin-top: 25%;
+   
 }
 
 

@@ -1,25 +1,26 @@
 .gallery2 {
     column-count: 2;
+    /* columns: 200px 2; */
     column-gap: 30px;
+    overflow:auto;
+
 }
 
-.gallery2 span {
-    margin: 0;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    margin-bottom: 30px !important;
+
+.gallery2>div {
+    display: inline-block;
+    page-break-inside: avoid;
     break-inside: avoid;
-    grid-row: 1 / -1;
-    grid-column: 1;
+    margin-bottom: 30px !important;
+    
 }
-
 
 
 @media screen and (max-width: 1240px) {
     .gallery2 {
         column-gap: 20px;
     }
-    .gallery2 span {      
+    .gallery2>div {      
         margin-bottom: 20px !important;
            }
   }

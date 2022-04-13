@@ -1,29 +1,67 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./css_modules/Gallery1.module.css";
 // import useNextBlurhash from "use-next-blurhash";
 import { motion } from "framer-motion";
 
+const cardsVariant = {
+  entered: { transition: { delayChildren: 0.5, staggerChildren: 0.25 } },
+};
+
+const cardVariant = {
+  entering: { y: 80, opacity: 0 },
+  entered: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      opacity: {
+        duration: 1,
+        ease: "easeOut",
+      },
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function Gallery1({ item }) {
-  const [isLoading, setLoading] = useState(true);
+  // const [isLoading, setLoading] = useState(true);
   // const [blurDataUrl] = useNextBlurhash("LEHV6nWB2yk8pyo0adR*.7kCMdnj");
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const { fields } = item;
   return (
-    <div className={styles.gallery1}>
+    <motion.div
+      // variants={cardsVariant}
+      // initial="entering"
+      // animate="entered"
+      className={styles.gallery1}
+    >
       {fields.map((item) => {
         return item.gallery1.map((items, data) => {
           return (
             <motion.div
-            // initial={{ opacity: 0, y: 50 }}
-            // whileInView={{ opacity: 1, y: 0 }}
-            // className={`image-block ${id}`}
-            // animate={{
-            //   scale: 0.5,
-            //   transition: {
-            //     duration: 1,
-            //   },
-            // }}
+              // layout
+              // variants={cardVariant}
+              initial={{ y: 80, opacity: 0 }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  opacity: {
+                    duration: 0.4,
+                    ease: "easeOut",
+                  },
+                  duration: 0.6,
+                  ease: "easeOut",
+                },
+              }}
+              viewport={{ once: true }}
             >
               <Image
                 key={data}
@@ -44,6 +82,6 @@ export default function Gallery1({ item }) {
           );
         });
       })}
-    </div>
+    </motion.div>
   );
 }

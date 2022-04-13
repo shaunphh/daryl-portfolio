@@ -6,7 +6,7 @@ export default function Header({ title }) {
   return (
     <header className={styles.header}>
       {fields.map((item, data) => {
-        return <h1 key={data}>{documentToReactComponents(item.title)}</h1>;
+        return <div key={data}>{documentToReactComponents(item.title)}</div>;
       })}
       {fields.map((item, data) => {
         return <div key={data}>{documentToReactComponents(item.about)}</div>;

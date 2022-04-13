@@ -22,8 +22,8 @@ export default function BlurImage({ video }) {
               opacity: 1,
               transition: {
                 opacity: {
-                  duration: 0.4,
-                  ease: "easeOut",
+                  duration: 0.8,
+                  ease: [0.6, 0.01, -0.05, 0.95],
                 },
                 duration: 0.6,
                 ease: "easeOut",

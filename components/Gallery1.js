@@ -5,26 +5,6 @@ import styles from "./css_modules/Gallery1.module.css";
 // import useNextBlurhash from "use-next-blurhash";
 import { motion } from "framer-motion";
 
-const cardsVariant = {
-  entered: { transition: { delayChildren: 0.5, staggerChildren: 0.25 } },
-};
-
-const cardVariant = {
-  entering: { y: 80, opacity: 0 },
-  entered: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      opacity: {
-        duration: 1,
-        ease: "easeOut",
-      },
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
 export default function Gallery1({ item }) {
   // const [isLoading, setLoading] = useState(true);
   // const [blurDataUrl] = useNextBlurhash("LEHV6nWB2yk8pyo0adR*.7kCMdnj");
@@ -54,8 +34,8 @@ export default function Gallery1({ item }) {
                 opacity: 1,
                 transition: {
                   opacity: {
-                    duration: 0.4,
-                    ease: "easeOut",
+                    duration: 0.8,
+                    ease: [0.6, 0.01, -0.05, 0.95],
                   },
                   duration: 0.6,
                   ease: "easeOut",
@@ -69,6 +49,7 @@ export default function Gallery1({ item }) {
                 width={items.fields.file.details.image.width}
                 height={items.fields.file.details.image.height}
                 alt={items.fields.title}
+                priority="true"
                 // placeholder="blur"
                 // blurDataURL={`/_next/image?url=${`https:` + items.fields.file.url}&w=16&q=1`}
                 // className={clsx("ease", isLoading ? "filter" : "nofilter")}

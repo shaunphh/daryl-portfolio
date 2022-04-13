@@ -9,8 +9,11 @@
   justify-content: space-between;
 }
 
+
+
 .footer p {
   font-size: 14px;
+  line-height: 18px;
 }
 
 .footer ul {
@@ -33,3 +36,20 @@
   filter: brightness(100%);
   cursor: pointer;
 }
+
+
+@media screen and (max-width: 479px) {
+  .footer{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+ 
+  .footer p {
+   padding-bottom: 18px;
+ }
+ .footer li {
+  margin-left: 0px;
+   margin-right: 24px;
+ }
+ }

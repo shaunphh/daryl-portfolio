@@ -72,6 +72,15 @@ main {
   padding-left: 30px;
 }
 
+@media screen and (max-width: 479px) {
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+  
+
 
 .scroll-container {
   position: fixed;

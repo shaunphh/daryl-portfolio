@@ -14,6 +14,7 @@ export default function BlurImage({ video }) {
             controls
             playsInline
             poster={`https:` + item.videoPoster.fields.file.url}
+            type="video/mp4"
             // layout
             // variants={cardVariant}
             initial={{ y: 80, opacity: 0 }}

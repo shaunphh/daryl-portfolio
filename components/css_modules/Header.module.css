@@ -54,8 +54,8 @@
   
 @media screen and (max-width: 479px) {
   .header {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 70px;
+    margin-bottom: 60px;
   }
   
   .header h1 {

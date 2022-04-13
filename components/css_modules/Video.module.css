@@ -16,3 +16,8 @@
         margin-bottom: 20px;
     }
   }
+  @media screen and (max-width: 479px) {
+    .video {      
+        margin-bottom: 13px !important;
+           }
+  }

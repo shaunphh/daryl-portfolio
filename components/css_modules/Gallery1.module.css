@@ -42,3 +42,11 @@
         margin-top: 0 !important;
     }
   }
+
+
+  
+  @media screen and (max-width: 479px) {
+    .gallery1>div {      
+        margin-bottom: 13px !important;
+           }
+  }

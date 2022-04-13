@@ -26,6 +26,7 @@ export default function Gallery2({ item }) {
         return item.gallery2.map((items, data) => {
           return (
             <motion.div
+              key={data}
               // layout
               // variants={cardVariant}
               initial={{ y: 80, opacity: 0 }}
@@ -41,7 +42,7 @@ export default function Gallery2({ item }) {
                   ease: "easeOut",
                 },
               }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "0px -20px 0px 0px" }}
             >
               <Image
                 key={data}

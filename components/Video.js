@@ -12,6 +12,8 @@ export default function BlurImage({ video }) {
             key={data}
             width="100%"
             controls
+            // autoPlay
+            // muted
             playsInline
             poster={`https:` + item.videoPoster.fields.file.url}
             src={`https:` + item.video.fields.file.url}
@@ -29,7 +31,7 @@ export default function BlurImage({ video }) {
                 ease: "easeOut",
               },
             }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px -20px 0px 0px" }}
           >
             <source src={`https:` + item.video.fields.file.url} type="video/mp4" />
           </motion.video>

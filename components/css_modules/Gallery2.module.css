@@ -12,6 +12,7 @@
     page-break-inside: avoid;
     break-inside: avoid;
     margin-bottom: 30px !important;
+    will-change: scroll-position;
     
 }
 

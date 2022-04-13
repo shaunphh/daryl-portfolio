@@ -26,6 +26,7 @@ export default function Gallery1({ item }) {
         return item.gallery1.map((items, data) => {
           return (
             <motion.div
+              key={data}
               // layout
               // variants={cardVariant}
               initial={{ y: 80, opacity: 0 }}

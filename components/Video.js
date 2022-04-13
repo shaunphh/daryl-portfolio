@@ -14,8 +14,7 @@ export default function BlurImage({ video }) {
             controls
             playsInline
             poster={`https:` + item.videoPoster.fields.file.url}
-            type="video/mp4"
-            // layout
+            src={`https:` + item.video.fields.file.url}
             // variants={cardVariant}
             initial={{ y: 80, opacity: 0 }}
             whileInView={{
@@ -32,7 +31,7 @@ export default function BlurImage({ video }) {
             }}
             viewport={{ once: true }}
           >
-            <source src={`https:` + item.video.fields.file.url} type="video/ogg" />
+            <source src={`https:` + item.video.fields.file.url} type="video/mp4" />
           </motion.video>
         );
       })}

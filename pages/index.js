@@ -21,6 +21,10 @@ export default function Home(props) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff"></meta>
         <meta
+          name="google-site-verification"
+          content="ssBoV4jTY9IAq3vpVDRkSUyw3i0d1SFP2sTxFqeJzcU"
+        />
+        <meta
           name="description"
           content="A multidisciplinary digital product designer, helping design, launch and grow digital brands & products. Focused on delivering well-crafted, user-centred products by transforming rough ideas & complex problems into compelling digital experiences."
           key="titleDescription"
